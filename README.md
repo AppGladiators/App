@@ -1,2 +1,2 @@
 # App
-This is an MSCW Events App
+This is MSCW Events App
