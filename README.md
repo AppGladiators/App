@@ -16,12 +16,12 @@ This is MSCW Events App
 4. Click on __Create Pull Request__
 
 :o:**Which Files to upload** :white_check_mark:
-In your directory, add two files: 
+<br/>In your directory, add two files: 
 1. Source code (.dart file)
 2. APK file (.apk)
 
 :o:**Font Family**
-Heading: Roboto
+<br/>Heading: Roboto
 Paragraphs, Button Text: Lato 
 
 :o:**Color Palette**
