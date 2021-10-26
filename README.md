@@ -1,4 +1,4 @@
-# App
+# App :iphone:
 This is MSCW Events App
 
 **IMPORTANT**
