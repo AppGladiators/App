@@ -40,7 +40,7 @@ Hamburger:
 3. DU subhead: 10.0/11.0
 <br/>
 1. Head: 15.0
-<br/>2. Para Text: 12.0
+<br/>2. Para Text: 13.0
 <br/>3. Button: 13.0
 
 <br/><br/><br/>
