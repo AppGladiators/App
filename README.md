@@ -42,6 +42,5 @@ Hamburger:
 1. Head: 15.0
 <br/>2. Para Text: 13.0
 <br/>3. Button: 13.0
-
-<br/><br/><br/>
-Contact __@BeginnerCoder21__ :raised_hands:
+<br/><br/>
+Contact __@BeginnerCoder21__ for queries :raised_hands:
