@@ -32,5 +32,15 @@ Paragraphs, Button Text: Lato
 5. Purple: 0xFF720972
 6. Box_Grey: 0xFFF0F0F0
 
+:o:**Font Size**
+<br/>
+Hamburger:
+1. Circle Radius: 40.0
+2. MSCW Head: 12.0
+3. DU subhead: 10.0/11.0
+<br/>
+1. Head: 15.0
+2. Para Text: 12.0
+3. Button: 13.0
 
-Contact [@BeginnerCoder21] 
+Contact [@BeginnerCoder21] :raised_hands:
