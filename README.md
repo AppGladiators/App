@@ -9,7 +9,7 @@ This is MSCW Events App
    b. demo.dart
    Name your file with About_main.dart and About_demo.dart
 
-:o:**##Pull Request**:speech_balloon:
+:o:##Pull Request:speech_balloon:
 1. In your Repo upload the required files.
 2. Create __New Pull Request__
 3. Give Title to your request, add a comment if required.
