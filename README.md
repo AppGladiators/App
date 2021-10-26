@@ -3,7 +3,7 @@ This is MSCW Events App
 
 **IMPORTANT**
 1. Make a directory(folder) on your forked Repository 
-   eg: App/**About/about_main.dart*
+   eg: App//**About/about_main.dart**
 2. If you have created 2 files, for instance 
    a. main.dart
    b. demo.dart
