@@ -43,5 +43,5 @@ Hamburger:
 <br/>2. Para Text: 12.0
 <br/>3. Button: 13.0
 
-<br/>
-Contact [@BeginnerCoder21] :raised_hands:
+<br/><br/><br/>
+Contact __@BeginnerCoder21__ :raised_hands:
