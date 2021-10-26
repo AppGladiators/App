@@ -9,7 +9,7 @@ This is MSCW Events App
    b. demo.dart
    Name your file with About_main.dart and About_demo.dart
 
-:o: ## Pull Request :speech_balloon:
+:o:__Pull Request__ :speech_balloon:
 1. In your Repo upload the required files.
 2. Create __New Pull Request__
 3. Give Title to your request, add a comment if required.
@@ -21,8 +21,16 @@ In your directory, add two files:
 2. APK file (.apk)
 
 :o:**Font Family**
+Heading: Roboto
+Paragraphs, Button Text: Lato 
 
-
+:o:**Color Palette**
+1. Blue: 0xFF0091DE
+2. Icon_Grey: 0xFF6C6C6C
+3. Text_Grey: 0xFF525252
+4. Amber/Yellow: 0xFFFFBA15
+5. Purple: 0xFF720972
+6. Box_Grey: 0xFFF0F0F0
 
 
 Contact [@BeginnerCoder21] 
