@@ -11,7 +11,7 @@ This is MSCW Events App
 
 :o:__Pull Request__ :speech_balloon:
 1. In your Repo upload the required files.
-2. Create __New Pull Request__
+2. Create __New Pull Request__ in your account only.
 3. Give Title to your request, add a comment if required.
 4. Click on __Create Pull Request__
 
