@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'About',
+    title: "About MSCW",
     home: AboutScreen(),
   ));
 }
@@ -13,7 +14,15 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About MSCW'),
+        title: Text(
+          "About MSCW",
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.bold,
+            fontSize: 17.0,
+          ),
+        ),
         backgroundColor: Color(0xff0091DE),
       ),
       drawer: Drawer(
@@ -36,6 +45,7 @@ class AboutScreen extends StatelessWidget {
                       "MATA SUNDRI COLLEGE FOR WOMEN",
                       style: TextStyle(
                         color: Colors.white,
+                        fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
                         fontSize: 12.0,
                       ),
@@ -46,6 +56,7 @@ class AboutScreen extends StatelessWidget {
                     child: Text(
                       "University of Delhi",
                       style: TextStyle(
+                        fontFamily: 'Roboto',
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 10.0,
@@ -102,6 +113,7 @@ class AboutScreen extends StatelessWidget {
                 "ABOUT US",
                 style: TextStyle(
                   color: Colors.white,
+                  fontFamily: 'Roboto',
                   fontWeight: FontWeight.bold,
                   fontSize: 15.0,
                 ),
@@ -113,8 +125,12 @@ class AboutScreen extends StatelessWidget {
             child: Center(
               child: Text(
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum doloeu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                textAlign: TextAlign.justify,
+                textDirection: TextDirection.rtl,
                 style: TextStyle(
                   fontSize: 12.0,
+                  height: 1.7,
+                  fontFamily: 'Lato',
                 ),
               ),
             ),
@@ -122,7 +138,45 @@ class AboutScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              RaisedButton(
+              Padding(
+                padding: EdgeInsets.all(2),
+                child: RaisedButton(
+                  padding: EdgeInsets.symmetric(vertical: 13, horizontal: 40),
+                  onPressed: () {},
+                  color: Color(0xFFFFBA15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  child: Text(
+                    "SOCITIES",
+                    style: TextStyle(
+                      fontSize: 13.0,
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(2),
+                child: RaisedButton(
+                  padding: EdgeInsets.symmetric(vertical: 13, horizontal: 40),
+                  onPressed: () {},
+                  color: Color(0xFFFFBA15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  child: Text(
+                    "EVENTS",
+                    style: TextStyle(
+                      fontSize: 13.0,
+                      fontFamily: 'Roboto',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              /*RaisedButton(
                 padding: EdgeInsets.symmetric(vertical: 13, horizontal: 40),
                 onPressed: () {},
                 color: Color(0xFFFFBA15),
@@ -133,6 +187,7 @@ class AboutScreen extends StatelessWidget {
                   "SOCITIES",
                   style: TextStyle(
                     fontSize: 13.0,
+                    fontFamily: 'Roboto',
                     color: Colors.white,
                   ),
                 ),
@@ -148,10 +203,11 @@ class AboutScreen extends StatelessWidget {
                   "EVENTS",
                   style: TextStyle(
                     fontSize: 13.0,
+                    fontFamily: 'Roboto',
                     color: Colors.white,
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         ],
@@ -206,6 +262,7 @@ class CustomListStyle extends StatelessWidget {
                   text,
                   style: TextStyle(
                     fontSize: 14.0,
+                    fontFamily: 'Roboto',
                   ),
                 ),
               ),
