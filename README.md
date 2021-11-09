@@ -31,6 +31,8 @@ Paragraphs, Button Text: Lato
 4. Amber/Yellow: 0xFFFFBA15
 5. Purple: 0xFF720972
 6. Box_Grey: 0xFFF0F0F0
+7. Red Button: 0XFFFE0505
+8. Green Button: 0XFF04C300
 
 :o:**Font Size**
 <br/>
