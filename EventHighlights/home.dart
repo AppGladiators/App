@@ -23,94 +23,61 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Color(0xFF0091DE),
       ),
-      drawer: Container(
-        width: MediaQuery.of(context).size.width / 1.3,
-        child: Drawer(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color(0xFF0091DE),
-                ),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 40.0,
-                      backgroundColor: const Color(0xFF778899),
-                      child: Image.asset('assets/images/logo.jpg'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        "MATA SUNDRI COLLEGE FOR WOMEN",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12.0),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF0091DE),
+              ),
+              child: Column(
+                children: <Widget>[
+                  CircleAvatar(
+                    radius: 40.0,
+                    backgroundColor: const Color(0xff0091DE),
+                    child: Image.asset('images/logo.jpg'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      "MATA SUNDRI COLLEGE FOR WOMEN",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12.0,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        "University of Delhi",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12.0),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      "University of Delhi",
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10.0,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              ListTile(
-                onTap: () {},
-                title: Text('HOME'),
-                leading: Icon(Icons.home),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('ABOUT MSCW'),
-                leading: Icon(Icons.info),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('SOCIETIES'),
-                leading: Icon(Icons.group),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('EVENT HIGHLIGHT'),
-                leading: Icon(Icons.highlight),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('RAISE AN ISSUE'),
-                leading: Icon(Icons.headset_mic),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('VISIT OUR WEBSITE'),
-                leading: Icon(Icons.web),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('CONTACT US'),
-                leading: Icon(Icons.call),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('PUBLISH OPPORTUNTIY'),
-                leading: Icon(Icons.home),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('ADMIN LOGIN'),
-                leading: Icon(Icons.login),
-              ),
-              ListTile(
-                onTap: () {},
-                title: Text('FAQ\'s'),
-                leading: Icon(Icons.help),
-              ),
-            ],
-          ),
+            ),
+            CustomListStyle(Icons.home, 'HOMEPAGE', () => {}),
+            CustomListStyle(Icons.info, 'ABOUT MSCW', () => {}),
+            CustomListStyle(Icons.people, 'SOCIETIES', () => {}),
+            CustomListStyle(Icons.highlight, 'EVENT HIGHLIGHT', () => {}),
+            CustomListStyle(Icons.headset_mic, 'RAISE AN ISSUE', () => {}),
+            CustomListStyle(Icons.web, 'VISIT OUR WEBSITE', () => {}),
+            CustomListStyle(Icons.call, 'CONTACT US', () => {}),
+            CustomListStyle(Icons.home, 'PUBLISH OPPORTUNITY', () => {}),
+            CustomListStyle(Icons.login, 'ADMIN LOGIN', () => {}),
+            CustomListStyle(Icons.help, 'FAQ\'s', () => {}),
+          ],
         ),
       ),
+     
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -143,6 +110,42 @@ class _HomeState extends State<Home> {
                               fit: BoxFit.cover,
                             ),
                           ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              'https://picsum.photos/250?image=5%27',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              'https://picsum.photos/250?image=5%27',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              'https://picsum.photos/250?image=9%27',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              'https://picsum.photos/250?image=2%27',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -160,11 +163,7 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          /*Icon(
-                            Icons.search,
-                            color: Colors.black,
-                            size: 20,
-                          ),*/
+                          prefixIcon: Icon(Icons.search),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.grey, width: 0.0),
                           ),
@@ -192,117 +191,121 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+              Expanded(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-              ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-              ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ]))),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Container(
@@ -317,117 +320,121 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+              Expanded(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-              ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-              ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
-                    onPressed: () {},
-                    color: Color(0xFF720972),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    child: Text(
-                      "Event Name",
-                      style: TextStyle(
-                        fontSize: 13.0,
-                        color: Colors.white,
+                    RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 40),
+                      onPressed: () {},
+                      color: Color(0xFF720972),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+                      child: Text(
+                        "Event Name",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ]))),
             ],
           ),
         ),
@@ -443,13 +450,51 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people, color: Color(0xFF6C6C6C)),
-            title: Text('Societies'),
+            title: Text('Socities'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.highlight, color: Color(0xFF6C6C6C)),
             title: Text('Events'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomListStyle extends StatelessWidget {
+  IconData icon;
+  String text;
+  Function onTap;
+  CustomListStyle(this.icon, this.text, this.onTap);
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(20, 5, 10, 5),
+      child: InkWell(
+        onTap: () => {},
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Icon(
+                icon,
+                color: Color(0xFF6C6C6C),
+              ),
+              Padding(
+                padding: EdgeInsets.all(9),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontFamily: 'Roboto',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
