@@ -322,5 +322,19 @@ class CustomListStyle extends StatelessWidget {
         ),
       ),
     );
+    floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(image: AssetImage('images/chatbot.png'), fit: BoxFit.fill),
+          ),
+           ),
+    );
   }
+  
+  
 }
+
