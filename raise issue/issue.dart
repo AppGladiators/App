@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  void validate() {
+    if (formKey.currentState.validate()) {
+      print("validate");
+    } else {
+      print("Not Validate");
+    }
+  }
+
+  String validatepass(value) {
+    if (value.isEmpty) {
+      return "Required";
+    } else {
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -81,13 +100,11 @@ class MyApp extends StatelessWidget {
                           padding: EdgeInsets.only(left: 15.0),
                           child: Align(
                               alignment: Alignment.centerLeft,
-                              child: Text(
-                                "Fill all the mandatory fields marked with '*'",
-                                style: GoogleFonts.lato(
-                                  textStyle: TextStyle(color: Colors.red, letterSpacing: .2),
-                                ),
-                                textAlign: TextAlign.left,
-                              ))),
+                              child: Text("Fill all the mandatory fields marked with '*'",
+                                  style: GoogleFonts.lato(
+                                    textStyle: TextStyle(color: Colors.red, letterSpacing: .2),
+                                  ),
+                                  textAlign: TextAlign.left))),
                       Container(
                           color: Colors.grey[350],
                           height: 450.0,
@@ -96,62 +113,66 @@ class MyApp extends StatelessWidget {
                           margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                           padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                           child: Form(
+                              autovalidate: true,
+                              key: formKey,
                               child: Column(children: <Widget>[
-                            Container(
-                                child: Row(children: <Widget>[
-                              Expanded(child: TextFormField(decoration: InputDecoration(labelText: "* First Name", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
-                              SizedBox(
-                                width: 20.0,
-                              ),
-                              Expanded(child: TextFormField(decoration: InputDecoration(labelText: "Last Name", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
-                            ])),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Expanded(child: TextFormField(decoration: InputDecoration(labelText: "*Category", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Expanded(child: TextFormField(decoration: InputDecoration(labelText: "*Enter your Email id", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Expanded(child: TextFormField(decoration: InputDecoration(labelText: "*Subject for issue", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Expanded(child: TextFormField(decoration: InputDecoration(labelText: "Write your issue : ", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
-                            SizedBox(
-                              height: 40.0,
-                            ),
-                            Container(
-                                child: Row(children: <Widget>[
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Color(0xFFFFBA15),
-                                  onPrimary: Colors.white,
-                                ),
-                                child: Text(
-                                  'Upload Documents',
-                                  style: GoogleFonts.lato(
-                                    textStyle: TextStyle(color: Colors.white),
+                                Container(
+                                    child: Row(children: <Widget>[
+                                  Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "First Name *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                  SizedBox(
+                                    width: 20.0,
                                   ),
+                                  Expanded(child: TextFormField(decoration: InputDecoration(labelText: "Last Name", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                ])),
+                                SizedBox(
+                                  height: 20.0,
                                 ),
-                                onPressed: () {},
-                              ),
-                              SizedBox(
-                                width: 60.0,
-                              ),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(primary: Colors.green, onPrimary: Colors.white),
-                                child: Text('Submit', style: GoogleFonts.lato(textStyle: TextStyle(color: Colors.white))),
-                                onPressed: () {},
-                              ),
-                            ])),
-                            SizedBox(
-                              height: 50.0,
-                            ),
-                          ]))),
+                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "Category *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Expanded(
+                                    child: TextFormField(
+                                        validator: MultiValidator([
+                                          RequiredValidator(errorText: "Required *"),
+                                          EmailValidator(errorText: "please enter valid email ID")
+                                        ]),
+                                        decoration: InputDecoration(labelText: "Enter your Email id *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "Subject for issue *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "Write your issue : *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                SizedBox(
+                                  height: 40.0,
+                                ),
+                                Container(
+                                    child: Row(children: <Widget>[
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Color(0xFFFFBA15),
+                                      onPrimary: Colors.white,
+                                    ),
+                                    child: Text(
+                                      'Upload Documents',
+                                      style: GoogleFonts.lato(
+                                        textStyle: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                  SizedBox(
+                                    width: 60.0,
+                                  ),
+                                  ElevatedButton(style: ElevatedButton.styleFrom(primary: Colors.green, onPrimary: Colors.white), child: Text('Submit', style: GoogleFonts.lato(textStyle: TextStyle(color: Colors.white))), onPressed: validate),
+                                ])),
+                                SizedBox(
+                                  height: 50.0,
+                                ),
+                              ]))),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                         child: Row(
@@ -173,11 +194,7 @@ class MyApp extends StatelessWidget {
                             SizedBox(
                               width: 7.0,
                             ),
-                            FloatingActionButton(
-                              onPressed: () {},
-                              child: const Icon(FontAwesomeIcons.robot, size: 25.0),
-                              backgroundColor: Color(0xFF720972),
-                            )
+                            FloatingActionButton(onPressed: () {}, child: Container(width: 100, height: 100, decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage(image: AssetImage("images/chatbot.jpeg")))))
                           ],
                         ),
                       ),
