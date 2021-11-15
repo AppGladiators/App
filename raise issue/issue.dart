@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                   'Raise An Issue',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
-                      fontSize: 26,
+                      fontSize: 17,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -50,6 +50,36 @@ class MyApp extends StatelessWidget {
                       Icons.menu,
                       color: Colors.white,
                     ))),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {},
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(image: AssetImage('images/chatbot.png'), fit: BoxFit.fill),
+                ),
+              ),
+            ),
+            bottomNavigationBar: new BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                new BottomNavigationBarItem(
+                  icon: new Icon(
+                    Icons.home,
+                    color: Color(0xFF6C6C6C),
+                  ),
+                  label: "Home",
+                ),
+                new BottomNavigationBarItem(
+                  icon: Icon(Icons.people, color: Color(0xFF6C6C6C)),
+                  label: "Socities",
+                ),
+                new BottomNavigationBarItem(
+                  icon: Icon(Icons.highlight, color: Color(0xFF6C6C6C)),
+                  label: "Events",
+                ),
+              ],
+            ),
             drawer: Drawer(
               child: ListView(
                 children: <Widget>[
@@ -64,7 +94,9 @@ class MyApp extends StatelessWidget {
                           backgroundColor: const Color(0xff0091DE),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(45),
-                            child: Image.network('https://images.static-collegedunia.com/public/college_data/images/logos/1559633020logo.jpg'),
+                            child: Image.asset(
+                              'images/logo.png',
+                            ),
                           ),
                         ),
                         Padding(
@@ -161,8 +193,8 @@ class MyApp extends StatelessWidget {
                                   ),
                                   textAlign: TextAlign.left))),
                       Container(
-                          color: Colors.grey[350],
-                          height: 450.0,
+                          color: Colors.grey[300],
+                          height: 570.0,
                           width: 500.0,
                           //decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(30.0))),
                           margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
@@ -173,16 +205,16 @@ class MyApp extends StatelessWidget {
                               child: Column(children: <Widget>[
                                 Container(
                                     child: Row(children: <Widget>[
-                                  Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "First Name *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                  Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*First Name", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                   SizedBox(
                                     width: 20.0,
                                   ),
                                   Expanded(child: TextFormField(decoration: InputDecoration(labelText: "Last Name", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 ])),
                                 SizedBox(
-                                  height: 20.0,
+                                  height: 25.0,
                                 ),
-                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "Category *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Category", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 20.0,
                                 ),
@@ -192,15 +224,15 @@ class MyApp extends StatelessWidget {
                                           RequiredValidator(errorText: "Required *"),
                                           EmailValidator(errorText: "please enter valid email ID")
                                         ]),
-                                        decoration: InputDecoration(labelText: "Enter your Email id *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                        decoration: InputDecoration(labelText: "Enter your Email id", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 20.0,
                                 ),
-                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "Subject for issue *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Subject for issue", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 20.0,
                                 ),
-                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "Write your issue : *", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Write your issue :", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 40.0,
                                 ),
@@ -225,7 +257,7 @@ class MyApp extends StatelessWidget {
                                   ElevatedButton(style: ElevatedButton.styleFrom(primary: Colors.green, onPrimary: Colors.white), child: Text('Submit', style: GoogleFonts.lato(textStyle: TextStyle(color: Colors.white))), onPressed: validate),
                                 ])),
                                 SizedBox(
-                                  height: 50.0,
+                                  height: 30.0,
                                 ),
                               ]))),
                       Container(
@@ -249,7 +281,6 @@ class MyApp extends StatelessWidget {
                             SizedBox(
                               width: 7.0,
                             ),
-                            FloatingActionButton(onPressed: () {}, child: Container(width: 100, height: 100, decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage(image: AssetImage("images/chatbot.jpeg")))))
                           ],
                         ),
                       ),
@@ -287,25 +318,6 @@ class MyApp extends StatelessWidget {
                             ),
                             Icon(FontAwesomeIcons.globe, color: Colors.white, size: 18.0),
                           ])),
-                      BottomNavigationBar(
-                        items: const <BottomNavigationBarItem>[
-                          BottomNavigationBarItem(
-                            icon: Icon(
-                              Icons.home,
-                              color: Color(0xFF6C6C6C),
-                            ),
-                            label: "Home",
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.people, color: Color(0xFF6C6C6C)),
-                            label: "Socities",
-                          ),
-                          BottomNavigationBarItem(
-                            icon: Icon(Icons.highlight, color: Color(0xFF6C6C6C)),
-                            label: "Events",
-                          ),
-                        ],
-                      )
                     ]))))));
   }
 }
