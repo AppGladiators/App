@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 void main() {
@@ -33,7 +32,6 @@ class MyApp extends StatelessWidget {
         title: "Raise Issue",
         home: Scaffold(
             appBar: AppBar(
-                centerTitle: true,
                 title: Text(
                   'Raise An Issue',
                   style: GoogleFonts.roboto(
@@ -88,16 +86,11 @@ class MyApp extends StatelessWidget {
                       color: Color(0xFF0091DE),
                     ),
                     child: Column(
-                      children: [
+                      children: <Widget>[
                         CircleAvatar(
                           radius: 40.0,
                           backgroundColor: const Color(0xff0091DE),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(45),
-                            child: Image.asset(
-                              'images/logo.png',
-                            ),
-                          ),
+                          child: Image.asset('images/logo.png'),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 8.0),
@@ -105,6 +98,7 @@ class MyApp extends StatelessWidget {
                             "MATA SUNDRI COLLEGE FOR WOMEN",
                             style: TextStyle(
                               color: Colors.white,
+                              fontFamily: 'Roboto',
                               fontWeight: FontWeight.bold,
                               fontSize: 12.0,
                             ),
@@ -115,6 +109,7 @@ class MyApp extends StatelessWidget {
                           child: Text(
                             "University of Delhi",
                             style: TextStyle(
+                              fontFamily: 'Roboto',
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 10.0,
@@ -143,13 +138,12 @@ class MyApp extends StatelessWidget {
                             child: Column(children: [
                       Stack(children: [
                         Container(
-                            margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'images/raise_issue.jpg',
-                              ),
-                            )),
+                          margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image(image: AssetImage('images/raise_issue.jpg')),
+                          ),
+                        ),
                         Container(
                             margin: EdgeInsets.symmetric(vertical: 80.0, horizontal: 15.0),
                             padding: EdgeInsets.only(left: 25.0),
@@ -183,6 +177,9 @@ class MyApp extends StatelessWidget {
                                 ),
                                 textAlign: TextAlign.left,
                               ))),
+                      SizedBox(
+                        height: 1.5,
+                      ),
                       Padding(
                           padding: EdgeInsets.only(left: 15.0),
                           child: Align(
@@ -193,10 +190,12 @@ class MyApp extends StatelessWidget {
                                   ),
                                   textAlign: TextAlign.left))),
                       Container(
-                          color: Colors.grey[300],
                           height: 570.0,
                           width: 500.0,
-                          //decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            color: Color(0xFFF0F0F0),
+                          ),
                           margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                           padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                           child: Form(
@@ -224,7 +223,7 @@ class MyApp extends StatelessWidget {
                                           RequiredValidator(errorText: "Required *"),
                                           EmailValidator(errorText: "please enter valid email ID")
                                         ]),
-                                        decoration: InputDecoration(labelText: "Enter your Email id", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                        decoration: InputDecoration(labelText: "*Enter your Email id", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 20.0,
                                 ),
@@ -232,45 +231,68 @@ class MyApp extends StatelessWidget {
                                 SizedBox(
                                   height: 20.0,
                                 ),
-                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Write your issue :", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                Expanded(child: TextField(maxLines: 10, decoration: InputDecoration(labelText: "Write your issue", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 40.0,
                                 ),
                                 Container(
-                                    child: Row(children: <Widget>[
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Color(0xFFFFBA15),
-                                      onPrimary: Colors.white,
-                                    ),
-                                    child: Text(
-                                      'Upload Documents',
-                                      style: GoogleFonts.lato(
-                                        textStyle: TextStyle(color: Colors.white),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(2),
+                                        child: RaisedButton(
+                                          padding: EdgeInsets.symmetric(vertical: 13, horizontal: 40),
+                                          onPressed: () {},
+                                          color: Color(0xFFFFBA15),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                          ),
+                                          child: Text(
+                                            "UPLOAD\nDOCUMENTS",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 13.0,
+                                              fontFamily: 'Roboto',
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                    onPressed: () {},
+                                      Padding(
+                                        padding: EdgeInsets.all(2),
+                                        child: RaisedButton(
+                                          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                                          onPressed: validate,
+                                          color: Color(0XFF04C300),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                          ),
+                                          child: Text(
+                                            "SUBMIT",
+                                            style: TextStyle(fontSize: 13.0, fontFamily: 'Roboto', fontWeight: FontWeight.bold, color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(
-                                    width: 60.0,
-                                  ),
-                                  ElevatedButton(style: ElevatedButton.styleFrom(primary: Colors.green, onPrimary: Colors.white), child: Text('Submit', style: GoogleFonts.lato(textStyle: TextStyle(color: Colors.white))), onPressed: validate),
-                                ])),
+                                ),
                                 SizedBox(
                                   height: 30.0,
                                 ),
                               ]))),
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                         child: Row(
                           children: [
                             Icon(
                               Icons.email_outlined,
                               color: Colors.purple[800],
-                              size: 40.0,
+                              size: 30.0,
                             ),
                             SizedBox(
-                              width: 7.0,
+                              width: 10.0,
                             ),
                             Text(
                               'matasundricollege.du@gmail.com',
@@ -284,40 +306,6 @@ class MyApp extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                          height: 50.0,
-                          color: Color(0xFF0091DE),
-                          child: Row(children: [
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            Text(
-                              'For further more information visit our website',
-                              style: GoogleFonts.lato(
-                                textStyle: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Align(alignment: Alignment(-0.40, 0.90)),
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            Icon(FontAwesomeIcons.facebook, color: Colors.white, size: 18.0),
-                            SizedBox(
-                              width: 7.0,
-                            ),
-                            Icon(FontAwesomeIcons.instagram, color: Colors.white, size: 18.0),
-                            SizedBox(
-                              width: 7.0,
-                            ),
-                            Icon(FontAwesomeIcons.twitter, color: Colors.white, size: 18.0),
-                            SizedBox(
-                              width: 7.0,
-                            ),
-                            Icon(FontAwesomeIcons.globe, color: Colors.white, size: 18.0),
-                          ])),
                     ]))))));
   }
 }
@@ -349,6 +337,7 @@ class CustomListStyle extends StatelessWidget {
                   text,
                   style: TextStyle(
                     fontSize: 14.0,
+                    fontFamily: 'Roboto',
                   ),
                 ),
               ),
