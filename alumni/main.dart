@@ -7,6 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  int _value = 0;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   void validate() {
     if (formKey.currentState.validate()) {
@@ -31,7 +32,6 @@ class MyApp extends StatelessWidget {
         title: "Alumin Records",
         home: Scaffold(
             appBar: AppBar(
-                centerTitle: true,
                 title: Text(
                   'Alumni Records',
                   style: GoogleFonts.roboto(
@@ -139,14 +139,20 @@ class MyApp extends StatelessWidget {
                 builder: (context) => SingleChildScrollView(
                         child: SafeArea(
                             child: Column(children: [
-                      Container(
-                          margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: ClipRRect(
                           child: Align(
                             alignment: Alignment.center,
                             child: Image.asset(
                               'images/alumni.jpg',
+                              height: 150,
+                              width: double.infinity,
                             ),
-                          )),
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        ),
+                      ),
                       Padding(
                           padding: EdgeInsets.only(left: 15.0),
                           child: Align(
@@ -159,7 +165,7 @@ class MyApp extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ))),
                       Padding(
-                          padding: EdgeInsets.only(left: 15.0),
+                          padding: EdgeInsets.only(left: 15.0, top: 1.5),
                           child: Align(
                               alignment: Alignment.centerLeft,
                               child: Text("Fill all the mandatory fields marked with '*'",
@@ -168,10 +174,12 @@ class MyApp extends StatelessWidget {
                                   ),
                                   textAlign: TextAlign.left))),
                       Container(
-                          color: Colors.grey[350],
                           height: 650.0,
                           width: 500.0,
-                          //decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                            color: Color(0xFFF0F0F0),
+                          ),
                           margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                           padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                           child: Form(
@@ -195,7 +203,7 @@ class MyApp extends StatelessWidget {
                                   SizedBox(
                                     width: 20.0,
                                   ),
-                                  Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Enter your phone no", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                  Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Phone no", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 ])),
                                 SizedBox(
                                   height: 20.0,
@@ -221,7 +229,103 @@ class MyApp extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Select your Department", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
+                                Expanded(
+                                  child: DropdownButtonFormField(
+                                    validator: (value) => value == 0 ? "Required" : null,
+                                    decoration: InputDecoration(fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))),
+                                    //hint: Text("*Select your Department"),
+                                    elevation: 4,
+                                    isExpanded: true,
+                                    value: _value,
+
+                                    items: [
+                                      DropdownMenuItem(
+                                        child: Text(
+                                          "*Select your Department",
+                                        ),
+                                        value: 0,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Commerce"),
+                                        value: 1,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Economics"),
+                                        value: 2,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("English"),
+                                        value: 3,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Hindi"),
+                                        value: 4,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Mathematics"),
+                                        value: 5,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Philosophy"),
+                                        value: 6,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Political Science"),
+                                        value: 7,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Punjabi"),
+                                        value: 8,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Statistics"),
+                                        value: 9,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Computer Science"),
+                                        value: 10,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Elementary Education"),
+                                        value: 11,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Environmental Science"),
+                                        value: 12,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("History"),
+                                        value: 13,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Music"),
+                                        value: 14,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Physical Education and Sports Sciences"),
+                                        value: 15,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Psychology"),
+                                        value: 16,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Sanskrit"),
+                                        value: 17,
+                                      ),
+                                      DropdownMenuItem(
+                                        child: Text("Urdu"),
+                                        value: 18,
+                                      ),
+                                    ],
+                                    /*       onChanged: (int value) {
+                                    setState(() {
+                                      _value = value;
+                                    });
+                                  },*/
+                                  ),
+                                ),
+                                //   Expanded(child: TextFormField(validator: validatepass, decoration: InputDecoration(labelText: "*Select your Department", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
                                   height: 20.0,
                                 ),
@@ -231,12 +335,11 @@ class MyApp extends StatelessWidget {
                                 ),
                                 Expanded(child: TextFormField(decoration: InputDecoration(labelText: "Description of your job role", fillColor: Colors.white, filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0))))),
                                 SizedBox(
-                                  height: 40.0,
+                                  height: 20.0,
                                 ),
-                                Container(
-                                    // margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
-                                    child: Align(
-                                  alignment: Alignment.center,
+                                SizedBox(
+                                  height: 40,
+                                  width: 120,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       primary: Color(0XFF04C300),
@@ -245,21 +348,24 @@ class MyApp extends StatelessWidget {
                                     child: Text(
                                       'Submit',
                                       style: GoogleFonts.lato(
-                                        textStyle: TextStyle(color: Colors.white),
+                                        textStyle: TextStyle(color: Colors.white, fontSize: 13),
                                       ),
                                     ),
                                     onPressed: () {},
                                   ),
-                                )),
+                                )
                               ]))),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                         child: Row(
                           children: [
-                            Icon(
-                              Icons.email_outlined,
-                              color: Colors.purple[800],
-                              size: 40.0,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: Icon(
+                                Icons.email_outlined,
+                                color: Colors.purple[800],
+                                size: 30.0,
+                              ),
                             ),
                             SizedBox(
                               width: 7.0,
@@ -278,6 +384,8 @@ class MyApp extends StatelessWidget {
                       )
                     ]))))));
   }
+
+  void setState(Null Function() param0) {}
 }
 
 class CustomListStyle extends StatelessWidget {
